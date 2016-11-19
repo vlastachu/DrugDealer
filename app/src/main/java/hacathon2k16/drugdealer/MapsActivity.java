@@ -15,15 +15,22 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Objects;
 
+import hacathon2k16.drugdealer.model.ActiveSubstance;
+import hacathon2k16.drugdealer.model.Drug;
+import hacathon2k16.drugdealer.model.DrugKind;
+import hacathon2k16.drugdealer.model.Store;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private LocationManager locationManager;
+    private boolean showedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +42,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        autoUpdateLocation();
+    }
+
+    private void makeModel() {
+        Store store1 = new Store("Аптека для бережливых", 30.3237683, 60.025691, "(812) 241-70-46", "09:00 - 22:00");
+        Store store2 = new Store("Аптека для бережливых", 30.3361767, 60.0738429, "(812) 241-70-46", "09:00 - 22:00");
+        Store store3 = new Store("eapteka.ru", 30.3497601, 59.9253358, "(812) 999-66-67", "08:00 - 23:00");
+
+        ActiveSubstance activeSubstance = new ActiveSubstance("парацетамол", "чтобы голова не болела, подходит всем");
+        DrugKind drugKind = new DrugKind("парацетамол", "старый добрый парацетамол", activeSubstance);
+        Drug drug1 = new Drug(drugKind, "таб. 200мг №10", store1, 280);
+        Drug drug2 = new Drug(drugKind, "таб. 200мг №10", store2, 300);
+        Drug drug3 = new Drug(drugKind, "таб. 200мг №10", store3, 300);
+
+        for(Drug drug: new Drug[]{drug1, drug2, drug3}) {
+            LatLng pos = new LatLng(drug.getStore().getLatitude(), drug.getStore().getLongitude());
+            mMap.addMarker(new MarkerOptions().position(pos).title(drug.getDrugKind().getName() + " по цене " + drug.getPrice() / 100.0f + " \u20BD"));
+            //mMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
+        }
+
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -49,14 +74,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100,
-                1, new LocationListener() {
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10,
+                10, new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
-
-                        LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
-                        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                        if (!showedOnce) {
+                            LatLng pos = new LatLng(location.getLatitude(), location.getLongitude());
+                            //mMap.addMarker(new MarkerOptions().position(pos).title("Marker in Sydney"));
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 12.0f));
+                            mMap.addCircle(new CircleOptions().center(pos).fillColor(0xff00ff00).radius(90));
+                            showedOnce = true;
+                        }
                     }
 
                     @Override
@@ -85,10 +113,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        makeModel();
+        autoUpdateLocation();
     }
 }
