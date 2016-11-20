@@ -6,23 +6,17 @@ package hacathon2k16.drugdealer.model;
 
 public class Drug {
     DrugKind drugKind;
-    String container;
     Store store;
     long price;
 
-    public Drug(DrugKind drugKind, String container, Store store, long price) {
+    public Drug(DrugKind drugKind, Store store, long price) {
         this.drugKind = drugKind;
-        this.container = container;
         this.store = store;
         this.price = price;
     }
 
     public DrugKind getDrugKind() {
         return drugKind;
-    }
-
-    public String getContainer() {
-        return container;
     }
 
     public Store getStore() {

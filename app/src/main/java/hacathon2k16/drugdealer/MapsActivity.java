@@ -19,6 +19,9 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import hacathon2k16.drugdealer.model.ActiveSubstance;
@@ -44,23 +47,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
-    private void makeModel() {
-        Store store1 = new Store("Аптека для бережливых", 30.3237683, 60.025691, "(812) 241-70-46", "09:00 - 22:00");
-        Store store2 = new Store("Аптека для бережливых", 30.3361767, 60.0738429, "(812) 241-70-46", "09:00 - 22:00");
-        Store store3 = new Store("eapteka.ru", 30.3497601, 59.9253358, "(812) 999-66-67", "08:00 - 23:00");
+    private void addStores() {
+        int problem = getIntent().getIntExtra("problem_id", -1);
+        if (problem != -1) {
+            ActiveSubstance substance = MainActivity.substances.get(problem);
+            List<Drug> drugs = new ArrayList<>();
+            for(Drug drug: MainActivity.drugs) {
+                if(drug.getDrugKind().getActiveSubstance().equals(substance)) {
+                    drugs.add(drug);
+                }
+            }
+            for(Drug drug: drugs) {
 
-        ActiveSubstance activeSubstance = new ActiveSubstance("парацетамол", "чтобы голова не болела, подходит всем");
-        DrugKind drugKind = new DrugKind("парацетамол", "старый добрый парацетамол", activeSubstance);
-        Drug drug1 = new Drug(drugKind, "таб. 200мг №10", store1, 280);
-        Drug drug2 = new Drug(drugKind, "таб. 200мг №10", store2, 300);
-        Drug drug3 = new Drug(drugKind, "таб. 200мг №10", store3, 300);
-
-        for(Drug drug: new Drug[]{drug1, drug2, drug3}) {
-            LatLng pos = new LatLng(drug.getStore().getLatitude(), drug.getStore().getLongitude());
-            mMap.addMarker(new MarkerOptions().position(pos).title(drug.getDrugKind().getName() + " по цене " + drug.getPrice() / 100.0f + " \u20BD"));
-            //mMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
+                LatLng pos = new LatLng(drug.getStore().getLongitude(), drug.getStore().getLatitude());
+                mMap.addMarker(new MarkerOptions().position(pos).title(drug.getDrugKind().getName() + " по цене " + formatPrice(drug.getPrice()) + " \u20BD"));
+            }
+        } else {
+            for (Store store : MainActivity.stores.values()) {
+                LatLng pos = new LatLng(store.getLongitude(), store.getLatitude());
+                mMap.addMarker(new MarkerOptions().position(pos).title(store.getName() + ", Номер телефона " + store.getPhone()
+                        + ", Часы работы: " + store.getWorkRange()));
+            }
         }
 
+    }
+
+    private String formatPrice(long price) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(price / 100.0);
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -113,7 +127,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        makeModel();
+        addStores();
         autoUpdateLocation();
     }
 }

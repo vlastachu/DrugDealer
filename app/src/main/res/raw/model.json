@@ -1,0 +1,340 @@
+{
+  "store": [
+    {
+      "id": 1,
+      "drugstorename": "Аптека для бережливых",
+      "longitude": 60.025691,
+      "latitude": 30.3237683,
+      "phone": "(812) 241-70-46",
+      "workrange": "09:00 - 22:00"
+    },
+    {
+      "id": 2,
+      "drugstorename": "Семейная",
+      "longitude": 60.0004426,
+      "latitude": 30.3610557,
+      "phone": "(911)211-94-42",
+      "workrange": "09:00-20:00"
+    },
+    {
+      "id": 3,
+      "drugstorename": "Петербургские аптеки, АО",
+      "longitude": 60.0017462,
+      "latitude": 30.3570269,
+      "phone": "(812)700-03-03",
+      "workrange": "08:00-22:00"
+    },
+    {
+      "id": 4,
+      "drugstorename": "Озерки",
+      "longitude": 59.997737,
+      "latitude": 30.3587213,
+      "phone": "(812)603-00-00",
+      "workrange": "08:00-22:00"
+    },
+    {
+      "id": 5,
+      "drugstorename": "ЛекОптТорг",
+      "longitude": 59.998375,
+      "latitude": 30.3648213,
+      "phone": "(812)641-01-01",
+      "workrange": "08:00-22:00"
+    },
+    {
+      "id": 6,
+      "drugstorename": "Радуга",
+      "longitude": 59.99299,
+      "latitude": 30.3511723,
+      "phone": "(812)450-04-50",
+      "workrange": "09:00-22:00"
+    },
+    {
+      "id": 7,
+      "drugstorename": "Невис",
+      "longitude": 59.995922,
+      "latitude": 30.381134,
+      "phone": "(812)703-45-30",
+      "workrange": "09:00-21:00"
+    },
+    {
+      "id": 8,
+      "drugstorename": "Первая помощь",
+      "longitude": 60.0066414,
+      "latitude": 30.3659219,
+      "phone": "(812)324-44-00",
+      "workrange": "08:00-22:00"
+    },
+    {
+      "id": 9,
+      "drugstorename": "Линия, ООО",
+      "longitude": 60.005512,
+      "latitude": 30.3888933,
+      "phone": "(812)324-44-00",
+      "workrange": "09:00-21:00"
+    },
+    {
+      "id": 10,
+      "drugstorename": "Путь к здоровью",
+      "longitude": 60.0065192,
+      "latitude": 30.4002355,
+      "phone": "(911)921-03-48",
+      "workrange": "09:00-22:00"
+    },
+    {
+      "id": 11,
+      "drugstorename": "Диа-фарм, ООО",
+      "longitude": 60.0134185,
+      "latitude": 30.3858212,
+      "phone": "(812)386-38-65",
+      "workrange": "09:00-22:00"
+    },
+    {
+      "id": 12,
+      "drugstorename": "Горздрав",
+      "longitude": 60.01511,
+      "latitude": 30.3888993,
+      "phone": "(812)426-15-84",
+      "workrange": "09:00-22:00"
+    },
+    {
+      "id": 13,
+      "drugstorename": "Фиалка",
+      "longitude": 60.0131,
+      "latitude": 30.3921483,
+      "phone": "(812)292-00-00",
+      "workrange": "круглосуточно"
+    },
+    {
+      "id": 14,
+      "drugstorename": "Фармакор",
+      "longitude": 60.015904,
+      "latitude": 30.3969113,
+      "phone": "(800)333-30-20",
+      "workrange": "09:00-21:00"
+    },
+    {
+      "id": 15,
+      "drugstorename": "Аптека доктора Живило",
+      "longitude": 60.0171371,
+      "latitude": 30.400786,
+      "phone": "(981)930-85-62",
+      "workrange": "09:00-21:00"
+    }
+  ],
+  "drug": [
+    {
+      "id": 1,
+      "name": "парацетамол",
+      "drugkindid": 1,
+      "storeid": 1,
+      "price": 2.8
+    },
+    {
+      "id": 2,
+      "name": "Амброксол",
+      "drugkindid": 2,
+      "storeid": 2,
+      "price": 50
+    },
+    {
+      "id": 3,
+      "name": "Амброгексал",
+      "drugkindid": 3,
+      "storeid": 3,
+      "price": 110
+    },
+    {
+      "id": 4,
+      "name": "Декспантенол",
+      "drugkindid": 4,
+      "storeid": 4,
+      "price": 140
+    },
+    {
+      "id": 5,
+      "name": "Бепантен",
+      "drugkindid": 5,
+      "storeid": 5,
+      "price": 280
+    },
+    {
+      "id": 6,
+      "name": "Диклофенак",
+      "drugkindid": 6,
+      "storeid": 6,
+      "price": 150
+    },
+    {
+      "id": 7,
+      "name": "Вольтарен",
+      "drugkindid": 7,
+      "storeid": 7,
+      "price": 400
+    },
+    {
+      "id": 8,
+      "name": "Флуконазол",
+      "drugkindid": 8,
+      "storeid": 8,
+      "price": 40
+    },
+    {
+      "id": 9,
+      "name": "Дифлюкан",
+      "drugkindid": 9,
+      "storeid": 9,
+      "price": 850
+    },
+    {
+      "id": 10,
+      "name": "Лоперамид",
+      "drugkindid": 10,
+      "storeid": 10,
+      "price": 20
+    },
+    {
+      "id": 11,
+      "name": "Имодиум",
+      "drugkindid": 11,
+      "storeid": 11,
+      "price": 300
+    }
+  ],
+  "drugKind": [
+    {
+      "id": 1,
+      "name": "парацетамол",
+      "container": "таб. 200мг №10",
+      "description": "старый добрый парацетамол",
+      "substanceid": 1
+    },
+    {
+      "id": 2,
+      "name": "Амброксол",
+      "container": "таб.30мг-50шт",
+      "description": "старый добрый амброксол",
+      "substanceid": 2
+    },
+    {
+      "id": 3,
+      "name": "Амброгексал",
+      "container": "таб.30мг-20шт",
+      "description": "старый добрый амброксол",
+      "substanceid": 2
+    },
+    {
+      "id": 4,
+      "name": "Декспантенол",
+      "container": "мазь д/на­ружн. прим. 5%: ту­бы 25 г или 30 г",
+      "description": "старый добрый декспантенол",
+      "substanceid": 3
+    },
+    {
+      "id": 5,
+      "name": "Бепантен",
+      "container": "крем д/на­ружн. прим. 5%: ту­бы 3.5 г, 30 г или 100 г",
+      "description": "старый добрый декспантенол",
+      "substanceid": 3
+    },
+    {
+      "id": 6,
+      "name": "Диклофенак",
+      "container": "гель д/на­ружн. прим. 1%: ту­ба 15, 20 или 30 г",
+      "description": "старый добрый диклофенак",
+      "substanceid": 4
+    },
+    {
+      "id": 7,
+      "name": "Вольтарен",
+      "container": "гель д/на­ружн. прим. 1%: ту­бы 10 г, 20 г, 50 г или 100 ",
+      "description": "старый добрый диклофенак",
+      "substanceid": 4
+    },
+    {
+      "id": 8,
+      "name": "Флуконазол",
+      "container": "капс. 50 мг: 4, 7 или 10 шт",
+      "description": "старый добрый флуконазол",
+      "substanceid": 5
+    },
+    {
+      "id": 9,
+      "name": "Дифлюкан",
+      "container": "капс. 50 мг: 7 шт.",
+      "description": "старый добрый флуконазол",
+      "substanceid": 5
+    },
+    {
+      "id": 10,
+      "name": "Лоперамид",
+      "container": "таб. 2 мг: 10 или 20 шт.",
+      "description": "старый добрый лоперамид",
+      "substanceid": 6
+    },
+    {
+      "id": 11,
+      "name": "Имодиум",
+      "container": "капс. 2 мг: 6 или 20 шт.",
+      "description": "старый добрый лоперамид",
+      "substanceid": 6
+    }
+  ],
+  "problems": [
+    {
+      "name": "болит голова",
+      "substanceid": 1
+    },
+    {
+      "name": "кашель",
+      "substanceid": 2
+    },
+    {
+      "name": "рана",
+      "substanceid": 3
+    },
+    {
+      "name": "боль в спине",
+      "substanceid": 4
+    },
+    {
+      "name": "грибок",
+      "substanceid": 5
+    },
+    {
+      "name": "диарея",
+      "substanceid": 6
+    }
+  ],
+  "substance": [
+    {
+      "id": 1,
+      "substancename": "парацетамол",
+      "substancedescription": "чтобы голова не болела, подходит всем"
+    },
+    {
+      "id": 2,
+      "substancename": "амброксол",
+      "substancedescription": "используется при заболеваниях дыхательных путей с образованием вязкой мокроты"
+    },
+    {
+      "id": 3,
+      "substancename": "декспантенол",
+      "substancedescription": "Препарат, улучшающий трофику и регенерацию тканей, для наружного применения"
+    },
+    {
+      "id": 4,
+      "substancename": "диклофенак",
+      "substancedescription": "При боли в спине, мышцах и в суставах"
+    },
+    {
+      "id": 5,
+      "substancename": "флуконазол",
+      "substancedescription": "Противогрибковый препарат"
+    },
+    {
+      "id": 6,
+      "substancename": "лоперамид",
+      "substancedescription": "Противодиарейное средство"
+    }
+  ]
+}
